@@ -133,15 +133,7 @@ async function validateVariables() {
   }
 }
 
-/*
-  API_URL=https://t100016.sb.euw1.kibocommerce.com/api
-CLIENT_ID=afg.data_connector.1.0.0.Release
-CLIENT_SECRET=91faf1355b0e4718b95a37a732c9fae5
-CATALOG_PAIRS='[{"source":5,"destination":7}, {"source":6,"destination":8}]'
-SITE_PAIRS='[{"source":100148,"destination":100150}, {"source":100149,"destination":100151}]'
-PRIME_CATALOG=5
-MASTER_CATALOG=2
-  */
+
 
 Yargs(process.argv.slice(2))
   // .option('all', {
@@ -303,6 +295,9 @@ SOURCE_SITE_PREFIX_LOCALE=en-xx
 TARGET_TENANT=
 TARGET_SITE=
 TARGET_SITE_PREFIX_LOCALE=en-xx
+#required for debugging with a global proxy
+#GLOBAL_AGENT_HTTP_PROXY=
+#NODE_TLS_REJECT_UNAUTHORIZED=
 `;
   if (fs.existsSync('.env')) {
     console.log('.env file already exists');
