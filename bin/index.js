@@ -281,6 +281,7 @@ async function performActions(actions, args) {
 function initEnv() {
   const template = `
 $API_URL=https://t***.com/api
+#home.mozu.com or home.euw1.kibocommerce.com
 AUTH_HOST=home.mozu.com
 CLIENT_ID=
 CLIENT_SECRET=
