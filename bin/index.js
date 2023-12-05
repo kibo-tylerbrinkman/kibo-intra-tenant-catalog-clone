@@ -281,6 +281,7 @@ async function performActions(actions, args) {
 function initEnv() {
   const template = `
 $API_URL=https://t***.com/api
+AUTH_HOST=home.mozu.com
 CLIENT_ID=
 CLIENT_SECRET=
 HTTPS_PROXY=

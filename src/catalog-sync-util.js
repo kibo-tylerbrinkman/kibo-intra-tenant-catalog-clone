@@ -29,7 +29,7 @@ class CatalogCloneUtil {
 
     this.generalSettingRoutes = {
       cart: '/commerce/settings/cart/cartsettings',
-      checkout: '/commerce/commerce/settings/checkout',
+      checkout: '/commerce/settings/checkout',
       fulfillment: '/commerce/settings/fulfillment/fulfillmentsettings',
       general: '/commerce/settings/general',
       inventory: '/commerce/settings/inventory/inventorySettings',
