@@ -1312,6 +1312,22 @@ class CatalogCloneUtil {
           await this.saveEntity(listFqn, entity);
         }
       }
+
+      for (const list of lists.items) {
+        if (list.contextLevel.toLowerCase() != 'site') {
+          continue;
+        }
+        const listFqn = list.name + '@' + list.nameSpace;
+        this.headers['x-vol-catalog'] = sourceSite.catalogId;
+        this.headers['x-vol-site'] = sourceSite.id;
+        var entities = await this.getEntities(listFqn);
+        for (const entity of entities.items) {
+          this.headers['x-vol-catalog'] = destinationSite.catalogId;
+          this.headers['x-vol-site'] = destinationSite.id;
+
+          await this.saveEntity(listFqn, entity);
+        }
+      }
     }
     delete this.headers['x-vol-site'];
   }
