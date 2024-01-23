@@ -29,7 +29,7 @@ class CatalogCloneUtil {
 
     this.generalSettingRoutes = {
       cart: '/commerce/settings/cart/cartsettings',
-      checkout: '/commerce/commerce/settings/checkout',
+      checkout: '/commerce/settings/checkout',
       fulfillment: '/commerce/settings/fulfillment/fulfillmentsettings',
       general: '/commerce/settings/general',
       inventory: '/commerce/settings/inventory/inventorySettings',
@@ -507,14 +507,17 @@ class CatalogCloneUtil {
       return;
     }
     if (
-      productInCatalogSource.primaryProductCategory &&
+      productInCatalogSource?.primaryProductCategory?.categoryId &&
       !(productInCatalogSource.productCategories || []).some(
         (cat) =>
           cat.categoryId ==
           productInCatalogSource.primaryProductCategory.categoryId,
       )
     ) {
-      delete productInCatalogSource.primaryProductCategory;
+      productInCatalogSource.productCategories.push({
+        categoryId:
+          productInCatalogSource.primaryProductCategory.categoryId,
+      });
     }
 
     var sourceMap = categoryMap[productInCatalogSource.catalogId];
@@ -572,7 +575,7 @@ class CatalogCloneUtil {
         );
       }
     } else {
-      delete productInCatalogsDestination.primaryProductCategory;
+        productInCatalogsDestination.primaryProductCategory = {};
     }
   }
   async waitForPromises(promises, count) {
